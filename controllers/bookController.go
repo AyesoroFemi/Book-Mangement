@@ -32,6 +32,12 @@ func GetBook(w http.ResponseWriter, r *http.Request) {
 
 	marsheledBook, err := json.Marshal(RequiredBook)
 
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error while marsheling the data"))
+		return
+	}
+
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusFound)
 	w.Write(marsheledBook)

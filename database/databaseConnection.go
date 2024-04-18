@@ -2,13 +2,18 @@ package database
 
 import (
 	"context"
+	// "os"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 func dbinstance() *mongo.Client {
+	// dsn := os.Getenv("MONGO_URL")
 	mongodb_uri := "mongodb+srv://femi:Omojesu1992@cluster0.gmml5r3.mongodb.net/"
+	// if dsn == "" {
+    //     panic("MONGODB_URI environment variable is not set")
+    // }
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(mongodb_uri))
 	if err != nil {
 		panic(err)

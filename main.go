@@ -1,12 +1,17 @@
 package main
 
 import (
-	"net/http"
+	"golang-main/bookstores.mb/initializers"
 	"golang-main/bookstores.mb/middleware"
 	"golang-main/bookstores.mb/routes"
+	"net/http"
 
 	"github.com/gorilla/mux"
 )
+
+func init() {
+	initializers.LoadEnvVariables()
+}
 
 func main() {
 
